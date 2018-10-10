@@ -41,7 +41,8 @@
     "webpack": "3.8.1",
     "webpack-dev-server": "2.11.3",
     "webpack-manifest-plugin": "1.3.2",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "2.0.3",
+    "@my-app/header": "*"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -96,7 +97,7 @@
     ],
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "/Users/ashokdudhade/os/typescript-react-yarn-worspaces/tsconfig.test.json"
+        "tsConfigFile": "~/os/typescript-react-yarn-worspaces/tsconfig.test.json"
       }
     }
   },
@@ -104,5 +105,6 @@
     "presets": [
       "react-app"
     ]
-  }
+  },
+  "workspaces": ["packages/*"]
 }

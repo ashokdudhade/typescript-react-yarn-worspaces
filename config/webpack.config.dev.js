@@ -122,7 +122,7 @@ module.exports = {
         test: /\.(js|jsx|mjs)$/,
         loader: require.resolve('source-map-loader'),
         enforce: 'pre',
-        include: paths.appSrc,
+        include: [paths.appSrc, paths.packagesSrc],
       },
       {
         // "oneOf" will traverse all following loaders until one will
@@ -142,7 +142,7 @@ module.exports = {
           },
           {
             test: /\.(js|jsx|mjs)$/,
-            include: paths.appSrc,
+            include: [paths.appSrc, paths.packagesSrc],
             loader: require.resolve('babel-loader'),
             options: {
               
@@ -153,7 +153,7 @@ module.exports = {
           // Compile .tsx?
           {
             test: /\.(ts|tsx)$/,
-            include: paths.appSrc,
+            include: [paths.appSrc, paths.packagesSrc],
             use: [
               {
                 loader: require.resolve('ts-loader'),
@@ -259,7 +259,7 @@ module.exports = {
     // Perform type checking and linting in a separate process to speed up compilation
     new ForkTsCheckerWebpackPlugin({
       async: false,
-      watch: paths.appSrc,
+      watch: [paths.appSrc, paths.packagesSrc],
       tsconfig: paths.appTsConfig,
       tslint: paths.appTsLint,
     }),
